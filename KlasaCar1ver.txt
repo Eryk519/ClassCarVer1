@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp59
+{
+    public class Car
+    {
+        public string marka;
+        public double rokprodukcji;
+        private string model;
+        private double iloscdrzwi;
+        private double pojemnoscSilnika;
+        public double srednieSpalanie;
+
+        public void PokazMarke()
+        {
+            Console.WriteLine(marka);
+        }
+        public void PokazRokprodukcji()
+        {
+            Console.WriteLine(rokprodukcji);
+        }
+        public double ObliczKosztPrzejazdu(double dlugoscTrasy, double cenaPaliwa) 
+        {
+            return Obliczspalanie((srednieSpalanie * dlugoscTrasy) * cenaPaliwa);
+        }
+        private double Obliczspalanie(double dlugoscTrasy) 
+        {
+            return (srednieSpalanie * dlugoscTrasy);
+        }
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string carName;
+            carName = "MojSamochod";
+            Console.WriteLine(carName);
+            Car car1 = new Car();
+            car1.marka = "mazda";
+            car1.rokprodukcji = 1998;
+            //Console.WriteLine(car1);//zwraca adres klasy, dlatego nalezy
+            //skorzytsac z metody 
+            car1.PokazMarke();
+            car1.PokazRokprodukcji();
+            Car car2 = new Car();
+            car2.marka = "nissan";
+            car2.rokprodukcji = 2007;
+            car2.PokazMarke();
+            car2.PokazRokprodukcji();
+            Console.ReadKey();
+        }
+    }
+}
